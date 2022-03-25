@@ -1,4 +1,4 @@
-let myNumber = 0
+let myNumber = 5
 
 let lowDuration = 0
 let myAvgAcc = 0
@@ -26,7 +26,7 @@ allowedToCount = true
 //
 
 basic.showNumber(myNumber, 100)
-basic.showIcon(IconNames.Skull)
+basic.showIcon(IconNames.StickFigure)
 basic.clearScreen()
 led.plot(2,4)
 radio.setGroup(1)
@@ -75,13 +75,12 @@ input.onButtonPressed(Button.B, function () {
 radio.onReceivedValue(function (name, value) {
     led.toggle(2,0)
     if (name == "count") {
+        
         if (myNumber != 0) {
-            control.waitMicros(10000 * myNumber)
-        } else {
-            basic.pause(1)
+            basic.pause(20 + (myNumber * 20))
         }
         radio.sendValue(myNumber.toString(), jumps)
-        basic.showIcon(IconNames.Chessboard, 1)
+        basic.showIcon(IconNames.Chessboard, 0)
     } else if (name == "setHighThresh") {
         highThresh = value
         basic.showString("HT ", 80)

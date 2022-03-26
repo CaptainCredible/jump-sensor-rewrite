@@ -1,4 +1,4 @@
-let myNumber = 5
+let myNumber = 19
 
 let lowDuration = 0
 let myAvgAcc = 0
